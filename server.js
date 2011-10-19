@@ -48,6 +48,7 @@ app.configure(function()
 	//app.use('/public',express.static(__dirname + '/client/public'));
 	app.use('/source',express.static(__dirname + '/client/source'));
 	app.use('/library',express.static(__dirname + '/client/library'));
+	app.use('/style',express.static(__dirname + '/client/style'));
 });
 
 app.get('/public',function(req,res){
