@@ -42,17 +42,12 @@ db.exists(function(err,exists)
 var app = express.createServer(express.logger());
 app.configure(function()
 {
-	app.set('views', __dirname + '/client/template');
+	app.set('views', __dirname + '/public');
 	app.set("view options",{layout:false});
 	app.use(express.bodyParser());
-	//app.use('/public',express.static(__dirname + '/client/public'));
-	app.use('/source',express.static(__dirname + '/client/source'));
-	app.use('/library',express.static(__dirname + '/client/library'));
-	app.use('/style',express.static(__dirname + '/client/style'));
-});
-
-app.get('/public',function(req,res){
-	res.render('index.ejs');
+	app.use('/public',express.static(__dirname + '/../public'));
+	app.use('/source',express.static(__dirname + '/../source'));
+	app.use('/library',express.static(__dirname + '/../library'));
 });
 
 app.post('/postGlyph',function(req,res){
@@ -63,15 +58,12 @@ app.post('/postGlyph',function(req,res){
 	res.send(JSON.stringify({'id':id}));
 });
 
-/*
-app.post('/removeGlyph',function(req,res){
-	var name = JSON.parse(req.body).name;
+app.post('/deleteGlyph',function(req,res){
+	var id = req.body.id;
+	db.remove(id);
 	
-	db.save(id,JSON.parse(req.body));
-
 	res.send(JSON.stringify({'id':id}));
 });
-*/
 
 
 /*
@@ -111,10 +103,11 @@ app.get('/fetchAllGlyph',function(req,res){
 			db.get(arrinfo[itr].id,function(err,json_data) {
 				var doc = JSON.parse(json_data);
 
-				arr_glyph.push({'name' : doc.name , 'points' : doc.points});
+				arr_glyph.push({'name' : doc.name , 'points' : doc.points,'id' : doc._id});
 
 				//Each async handler must judge if it's last one and do the "join" work.
-				if(arrinfo[arrinfo.length - 1].id == doc._id)
+				//The last one in the array IS/ISN't the result of "this get".
+				if(arrinfo[arrinfo.length - 1].id == doc._id)	
 				{
 					res.send(JSON.stringify(arr_glyph));
 
