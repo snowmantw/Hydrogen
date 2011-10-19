@@ -1,0 +1,64 @@
+body
+{
+	background-color:#222;
+}
+
+#main
+{
+	width : 600px;
+	height: 450px;
+	margin:0 auto;
+	background-color:#3b3b3b;
+	border-radius: 15px;
+}
+
+#main canvas
+{
+	/* IF width and height HERE don't match 
+	   the setting by canvas ITSELF, will cause resolution problem.
+	*/
+		margin:0 auto;
+		width  :600px;
+		height :450px;
+}
+
+#toolbar
+{
+	margin:5px auto;
+	width  :580px;
+	height :20pt;
+
+	font-size:18pt;
+	color:white;
+	font-weight:normal;
+	font-family:monospace;
+}
+
+#infobar
+{
+	margin:5px auto;
+	width  :580px;
+	height :20pt;
+
+	font-size:14pt;
+	color:white;
+	font-weight:bolder;
+	font-family:monospace;
+}
+
+#toolbar .button
+{
+	margin:0 5px;
+	cursor:pointer;
+}
+
+#carousel .glyph
+{
+	display:inline-block;
+	margin:15px 5px 0px 5px;
+	width:150px;
+	height:112px;
+	background-color:#3b3b3b;
+	border-radius: 5px;
+	opacity:0.4;
+}

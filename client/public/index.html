@@ -1,0 +1,66 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<html lang="zh_TW"> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style/main.css" />
+<script language="javascript" src="/library/jQuery/jQuery.min.js" ></script>
+<script language="javascript" src="/source/algorithm.js"></script>
+<script language="javascript" src="/source/game.js" ></script>
+<script language="javascript" src="/source/utils.js" ></script>
+<script language="javascript" src="/source/view.js" ></script>
+<script language="javascript" src="/source/tool.js" ></script>
+<script language="javascript" src="/source/command.js"></script>
+<script language="javascript" src="/source/global.js" ></script>
+<script language="javascript" src="/source/glyph.js" ></script>
+<script language="javascript" src="/source/draw.js" ></script>
+<script language="javascript" src="/source/event.js" ></script>
+<script language="javascript" src="/source/datum.js" ></script>
+
+<script language="javascript" src="/source/io.js"></script>
+
+<script language="javascript">
+
+	function blinkblink2a(){
+		$("#main").fadeOut("slow",blinkblink2b);
+	}
+	function blinkblink2b(){
+		$("#main").fadeIn("slow",blinkblink2a);
+	}
+
+    jQuery(document).ready(function()
+    {
+		setMainDrawEnv(jQuery('canvas')[0]);
+		initEventDraw();
+		initEventTools();
+		fetchAllGlyph(function(glyphs){
+			updateCarousel(glyphs);
+		});
+		sendMessage(HELP);
+    });
+
+</script>
+
+</head>
+<body>
+
+<div id="toolbar">
+	<span id="help"		   class="button">?</span>
+	<span id="game"		   class="button">G</span>
+	<span id="quit"		   class="button">Q</span>
+	<span id="add"		   class="button">+</span>
+	<span id="remove"  	   class="button">-</span>
+	<span id="increase"    class="button">N</span>
+	<span id="descrease"   class="button">n</span>
+</div>
+<div id="main">
+	<canvas width="600px" height="450px"></canvas>
+</div>
+
+<div id="infobar">
+</div>
+<div id="carousel">
+</div>
+
+</body>
+</html>
