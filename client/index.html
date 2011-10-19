@@ -35,8 +35,9 @@
 		initEventTools();
 		fetchAllGlyph(function(glyphs){
 			updateCarousel(glyphs);
+			sendMessage(HELP);
 		});
-		sendMessage(HELP);
+		sendMessage("請等候樣板載入...");
     });
 
 </script>
@@ -52,6 +53,7 @@
 	<span id="remove"  	   class="button">-</span>
 	<span id="increase"    class="button">N</span>
 	<span id="descrease"   class="button">n</span>
+	<span id="author"	   class="button">A</span>
 </div>
 <div id="main">
 	<canvas width="600px" height="450px"></canvas>

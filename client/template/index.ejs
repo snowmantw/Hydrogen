@@ -3,7 +3,7 @@
 <html lang="zh_TW"> 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="/style/main.css" />
+<link rel="stylesheet" type="text/css" href="style/main.css" />
 <script language="javascript" src="/library/jQuery/jQuery.min.js" ></script>
 <script language="javascript" src="/source/algorithm.js"></script>
 <script language="javascript" src="/source/game.js" ></script>
@@ -35,8 +35,9 @@
 		initEventTools();
 		fetchAllGlyph(function(glyphs){
 			updateCarousel(glyphs);
+			sendMessage(HELP);
 		});
-		sendMessage(HELP);
+		sendMessage("請等候樣板載入...");
     });
 
 </script>
@@ -52,6 +53,7 @@
 	<span id="remove"  	   class="button">-</span>
 	<span id="increase"    class="button">N</span>
 	<span id="descrease"   class="button">n</span>
+	<span id="author"	   class="button">A</span>
 </div>
 <div id="main">
 	<canvas width="600px" height="450px"></canvas>
