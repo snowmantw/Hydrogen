@@ -79,7 +79,8 @@ function blinkMatch(name_glyph,tmb,tme)
 	var dom_glyph = jQuery('#carousel').children("[gname='"+name_glyph+"']")[0];
 
 	//var orig_bgcolor = jQuery(dom_glyph).css('backgrounColor');
-	var orig_opacity = jQuery(dom_glyph).css('opacity');
+	//var orig_opacity = jQuery(dom_glyph).css('opacity');
+	var orig_opacity = GOPACITY;
 	
 	jQuery(dom_glyph).animate({'opacity':'1.0'},tmb,function()
 		{jQuery(dom_glyph).animate({'opacity':orig_opacity},tme)});

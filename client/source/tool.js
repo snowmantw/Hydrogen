@@ -1,4 +1,31 @@
 /**
+ * Print a author's info.
+ *
+ * @param  None
+ * @return None
+ * @modify The infobar.
+ * @effect Put the author message ( text or HTML ) to the bar.
+ */
+function handleAuthor()
+{
+	sendMessage(AUTHOR);
+}
+
+/*
+ * Print a help message.
+ *
+ * @param  None
+ * @return None
+ * @modify The infobar.
+ * @effect Put the help message ( text or HTML ) to the bar.
+ */
+function handleHelp()
+{
+	sendMessage(HELP);
+}
+
+
+/**
  * Print a help message.
  *
  * @param  None
@@ -158,7 +185,7 @@ function handleDescreaseN()
 	{	
 		if(! FLAG_DCONTINUE) { return; }	//Prevent the last executing after canceling.
 
-		sendMessage("增加重新取樣率：按住 'n' 以持續減少。目前值："+N);
+		sendMessage("減少重新取樣率：按住 'n' 以持續減少。目前值："+N);
 		if(0 == N) {return; }
 	   
 		N--;

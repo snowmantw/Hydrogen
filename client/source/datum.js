@@ -1,8 +1,9 @@
 
-function Glyph(str_name,arr_points)
+function Glyph(str_name,arr_points,id)
 {
 	this.name = str_name;
 	this.points = arr_points;
+	this.id = id;
 }
 
 function Point(x,y)

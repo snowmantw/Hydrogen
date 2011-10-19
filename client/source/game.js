@@ -5,24 +5,24 @@ function startGame()
 
 	function random(min,max) {
 		var rf = Math.random();
-console.log(rf);
 		return Math.floor(Math.random()*(max-min+1)+min);
 	}
 
 	function cls_ifmatch(gname){
 		return function(){
-console.log(gname);
 			if(!GAME) {return;}
 			if(gname == GNAME_MATCH) { sendMessage("遊戲：比對成功！");
 
 				var mainc = jQuery('#main canvas')[0];
-				var orig_opacity = jQuery(mainc).css('opacity');
+				var origo = jQuery(mainc).css('opacity');
 				
-				jQuery(mainc).animate({'opacity':'0.4'},300,function()
-					{jQuery(mainc).animate({'opacity':orig_opacity},300)});
+				jQuery(mainc).animate({'opacity':'0.2'},300,function()
+					{jQuery(mainc).animate({'opacity':origo},300)});
 
 			}
-			else { sendMessage("遊戲：比對失敗！目標："+gname);}
+			else { 
+					sendMessage("遊戲：比對失敗！目標："+gname);
+				}
 			
 			GNAME_MATCH = "None"
 		}

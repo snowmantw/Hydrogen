@@ -19,6 +19,8 @@ function postGlyph(glyph)
 //Should lock the glyph list until this callback exec ?
 //DEBUG
 			var id = idobj.id;
+			glyph.id = id;
+	console.log(glyph.id);
 			sendMessage("新樣板儲存完成");
 			updateCarousel(GLYPH);
 		}
@@ -28,19 +30,18 @@ function postGlyph(glyph)
 /**
  * Remove a glyph from database.
  *
- * @param String name
+ * @param String id
  * @return None
  * @modify The glyph database.
  * @effect The glyph will be removed from the database.
  *
  */
-function deleteGlyph(name)
+function deleteGlyph(id)
 {
-	/* TODO : SKIP
 	jQuery.ajax({
-		'url' : URL_REMOVE_GLYPH,
+		'url' : URL_DELETE_GLYPH,
 		'type': 'POST',
-		'data': JSON.stringify({'name':name}),
+		'data': JSON.stringify({'id':id}),
 		'contentType':'application/json',
 		'success' : function(data){
 //Should lock the glyph list until this callback exec ?
@@ -48,7 +49,6 @@ function deleteGlyph(name)
 console.log(data);
 		}
 	});
-	*/
 }
 
 /**
@@ -70,7 +70,7 @@ function fetchAllGlyph(handler)
 			for(var itr in arr_glyph_plain)
 			{
 				var current = arr_glyph_plain[itr];
-				GLYPH[current.name] = new Glyph(current.name,current.points);
+				GLYPH[current.name] = new Glyph(current.name,current.points,current.id);
 				GLYPH_COUNT++;
 			}
 			handler(GLYPH);

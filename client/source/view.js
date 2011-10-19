@@ -41,7 +41,8 @@ function renderGlyph(glyph)
 	//Or PNG way is better ?
 	var dom_img = capture(dom_canvas);
 	jQuery(dom_wrapped).addClass(CLASS_GLYPH)
-		.attr({'gname':glyph.name,'title':glyph.name}).append(capture(dom_canvas));
+		.attr({'gname':glyph.name,'title':glyph.name,'id':glyph.id})
+		.append(capture(dom_canvas));
 
 	return dom_wrapped;
 }

@@ -42,12 +42,16 @@ db.exists(function(err,exists)
 var app = express.createServer(express.logger());
 app.configure(function()
 {
-	app.set('views', __dirname + '/public');
+	app.set('views', __dirname + '/client/public');
 	app.set("view options",{layout:false});
 	app.use(express.bodyParser());
-	app.use('/public',express.static(__dirname + '/../public'));
-	app.use('/source',express.static(__dirname + '/../source'));
-	app.use('/library',express.static(__dirname + '/../library'));
+	app.use('/public',express.static(__dirname + '/client/public'));
+	app.use('/source',express.static(__dirname + '/client/source'));
+	app.use('/library',express.static(__dirname + '/client/library'));
+});
+
+app.get('/',function(req,res){
+	res.render('index.ejs');
 });
 
 app.post('/postGlyph',function(req,res){

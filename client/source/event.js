@@ -70,6 +70,7 @@ function initEventTools()
 	jQuery("#remove").click(handleRemove);
 	jQuery("#increase").mousedown(handleIncreaseN);
 	jQuery("#descrease").mousedown(handleDescreaseN);
+	jQuery("#author").click(handleAuthor);
 }
 
 /**

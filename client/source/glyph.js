@@ -125,10 +125,11 @@ function removeGlyph(name)
 {
 	jQuery('#carousel').children(".glyph[gname='"+name+"']").remove();
 	var target = GLYPH[name];
+	var id = GLYPH[name].id;
 	GLYPH[name] = null;
 	delete GLYPH[name];
 	
-	deleteGlyph(name);
+	deleteGlyph(id);
 	GLYPH_COUNT --;
 	
 	return target;
