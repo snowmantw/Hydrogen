@@ -42,7 +42,7 @@ db.exists(function(err,exists)
 var app = express.createServer(express.logger());
 app.configure(function()
 {
-	app.set('views', __dirname + '/client');
+	app.set('views', __dirname + '/client/template');
 	app.set("view options",{layout:false});
 	app.use(express.bodyParser());
 	//app.use('/public',express.static(__dirname + '/client/public'));
