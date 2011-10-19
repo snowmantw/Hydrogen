@@ -46,6 +46,7 @@ app.configure(function()
 	app.set("view options",{layout:false});
 	app.use(express.bodyParser());
 	app.use('/public',express.static(__dirname + '/client/public'));
+	app.use('/style',express.static(__dirname + '/client/style'));
 	app.use('/source',express.static(__dirname + '/client/source'));
 	app.use('/library',express.static(__dirname + '/client/library'));
 });
