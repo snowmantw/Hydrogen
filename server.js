@@ -13,7 +13,6 @@ var DBPORT= 443;
 //var DBURL = '140.119.164.163';
 //var DBPORT= 5984;
 
-/*
 var dbconnect = new (cradle.Connection)(DBURL,DBPORT,
 {cache:true,raw:false,auth:DBAUTH});
 
@@ -39,7 +38,7 @@ db.exists(function(err,exists)
 		console.log("Database is OK.");
 	}
 });
-*/
+
 var app = express.createServer(express.logger());
 app.configure(function()
 {
@@ -51,10 +50,10 @@ app.configure(function()
 	app.use('/library',express.static(__dirname + '/client/library'));
 });
 
-app.get('/public',function(){
+app.get('/public',function(req,res){
 	res.render('index.ejs');
 });
-/*
+
 app.post('/postGlyph',function(req,res){
 	var id = uuid();
 //	db.save(id,JSON.parse(req.body));
@@ -62,7 +61,6 @@ app.post('/postGlyph',function(req,res){
 
 	res.send(JSON.stringify({'id':id}));
 });
-*/
 
 /*
 app.post('/removeGlyph',function(req,res){
