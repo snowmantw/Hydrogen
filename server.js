@@ -6,17 +6,21 @@ var fs = require('fs');
 
 //TODO: Bad. Should be a env variable.
 //TODO: Bad AGAIN : No httpS supported in cradle...?
-var DBURL = 'https://app1355379.heroku.cloudant.com';
-var DBAUTH= {username:'app1355379.heroku',password:'VJ3hyQ0avK8SV8qiFf8dCcvw'};
-var DBPORT= 443;
+var DBURL = 'http://vanilla';
+var DBAUTH= {username:'hydrogen',password:'hydrogen'};
+var DBPORT= 5984;
 
 //var DBURL = '140.119.164.163';
 //var DBPORT= 5984;
 
-var dbconnect = new (cradle.Connection)(DBURL,DBPORT,
-{cache:true,raw:false,auth:DBAUTH});
+var dbconnect = new(cradle.Connection)({
+  host: DBURL,
+  port: DBPORT,
+  cache: true,
+  raw: false
+});
 
-var db = dbconnect.database('hci2011');
+var db = dbconnect.database('hydrogen');
 
 db.exists(function(err,exists)
 {
@@ -27,7 +31,7 @@ db.exists(function(err,exists)
 	{
 		console.log(err);
 	}
-	else if(! exists)
+	else if('undefined' == typeof exists)
 	{
 		console.log("Database don't exists.");
 		db.create();
@@ -90,7 +94,7 @@ app.get('/fetchGlyph',function(req,res){
 app.get('/fetchAllGlyph',function(req,res){
 	db.all(function(err,arrinfo){
 		if(err)	{
-			console.log(err);
+			console.error(err);
 			throw new Error(); 
 		}
 
